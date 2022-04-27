@@ -1,0 +1,609 @@
+/* Global styles */
+
+:root {
+    --main: rgb(24, 243, 141);
+    --white: whitesmoke;
+    --text: rgb(38, 37, 44);
+    --shadow: 3px 3px 3px rgb(32, 30, 30);
+    --card-shadow: 2px 2px 5px gray;
+    --shadow-inset: inset 3px 3px 3px rgb(32, 30, 30);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+
+::selection {
+    background-color: rgba(24, 243, 141, 0.63);
+    color: var(--white);
+}
+
+
+body {
+    position: relative;
+    background-color: #ddd;
+    overflow-x: hidden;
+    transition: all ease 0.3s;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#add{
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    height: 20vmin;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2vmin;
+    z-index: 99999;
+    opacity: 1;
+    color: #fff;
+    background-color: var(--text);
+    visibility: hidden;
+    opacity: 0;
+   
+}
+
+#add img{
+    height: 16vmin;
+    width: 16vmin;
+}
+
+#add p{
+    line-height: 5vmin;
+    font-size: 1.8vmin;
+    margin: 0;
+}
+
+#add a{
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#add button{
+    line-height: 0;
+    padding: 2vmin 1vmin;
+    font-size: 2vmin;
+    margin: 0;
+}
+
+#add .closeAdd{
+    font-size: 5vmin;
+    position: absolute;
+    right: 0;
+    top: -15%;
+    cursor: pointer;
+}
+
+.title {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(24, 243, 141);
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 3px;
+}
+
+.title .text {
+    display: flex;
+    cursor: pointer;
+}
+
+.title .text h2 {
+    margin-left: 5px;
+    font-size: 25px;
+    margin-bottom: 0;
+    color: var(--text);
+}
+
+.title img {
+    width: 28px;
+    height: 28px;
+}
+
+.info {
+    font-size: 26px;
+    color: transparent;
+    text-align: center;
+    margin: 30px auto;
+    -webkit-text-stroke: 1.3px rgb(0, 255, 136);
+    border: 4px double #000;
+    padding: 5px 0;
+}
+
+.main-info{
+    margin-top: 60px;
+    background-color: var(--text);
+    color: var(--white);
+    border-radius: 20px;
+    font-size: 40px;
+}
+
+.upload{
+    font-size: 12px;
+}
+
+.end-text-links{
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+#actived{
+    color: var(--main);
+}
+
+.adds{
+    width: 80%;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+    background-color: #ddd;
+    position: relative;
+}
+
+.adds h5{
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    color: gray;
+}
+
+/* navigation */
+
+#nav {
+    margin-top: 0;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--text);
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+#nav .menu {
+    cursor: pointer;
+    z-index: 999;
+}
+
+
+#nav .menu div {
+    width: 48px;
+    height: 8px;
+    background-color: var(--white);
+    position: relative;
+}
+
+#nav .menu div::after {
+    content: "";
+    position: absolute;
+    top: 16px;
+    width: 48px;
+    height: 8px;
+    background-color: var(--white);
+}
+
+#nav .menu div::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    width: 48px;
+    height: 8px;
+    background-color: var(--white);
+}
+
+#nav .logo h1 {
+    font-size: 38px;
+    color: var(--white);
+}
+
+#nav .logo span {
+    color: var(--main);
+}
+
+
+.navigation-items {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--text);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: 0.6s all ease;
+    overflow: auto;
+}
+
+.navigation-items-show {
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.navigation-items .linkitm {
+    font-size: 25px;
+    text-decoration: none;
+    color: var(--white);
+    margin: 8px 0;
+    padding: 6px;
+    position: relative;
+    box-shadow: var(--shadow);
+    border-radius: 20px;
+    transition: all linear 0.3s;
+    text-align: center;
+}
+
+.navigation-items a {
+    position: absolute;
+    right: 2%;
+    top: 3%;
+}
+
+.navigation-items a:hover {
+    box-shadow: var(--shadow-inset);
+    color: var(--main);
+}
+
+/* Main-section */
+
+#main {
+    height: 100vh;
+    width: 100vw;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: url(../img/banner.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+#main h1 {
+    font-size: 55px;
+    color: var(--white);
+}
+
+#main h1 span {
+    color: var(--main);
+}
+
+#main p {
+    font-size: 25px;
+    text-align: center;
+    margin-top: 15px;
+    border: 2px solid rgb(24, 243, 141);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.383);
+}
+
+/* Caralog-Section */
+
+#catalog {
+    margin-top: 5px;
+}
+
+ .categories {
+    padding: 8px 0;
+    display: none;
+}
+
+ .categories ul li {
+    line-height: 50px;
+}
+
+.categories ul li img {
+    height: 30px;
+    width: 30px;
+}
+
+ .categories ul li a {
+    font-size: 18px;
+}
+
+ .logo {
+    margin: 15px 0;
+}
+
+ .logo img {
+    margin: 0 auto;
+    display: block;
+}
+
+#catalog .popgames {
+    width: 650px;
+    height: 350px;
+    margin: 40px auto;
+    display: flex;
+    position: relative;
+}
+
+#catalog .popgames .gamecnt {
+    overflow: hidden;
+    display: block;
+    position: relative;
+}
+
+#catalog .popgames .gamecnt::before {
+    content: "DOWNLOAD";
+    text-align: center;
+    color: var(--white);
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+    background-color: rgb(24, 243, 141);
+    z-index: -1;
+}
+
+#catalog .popgames .gamecnt:hover::before {
+    z-index: 1;
+}
+
+#catalog .popgames .gamecnt img {
+    width: 100%;
+    height: 100%;
+    animation: game 20s ease-in-out infinite 3s;
+}
+
+#catalog .gameslidt .selectgame {
+    display: grid;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    grid-template-columns: 33% 33% 33%;
+}
+
+#catalog .gameslidt .selectgame a {
+    position: relative;
+}
+
+#catalog .gameslidt .selectgame a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#catalog .gameslidt .selectgame a::before {
+    content: "";
+    text-align: center;
+    color: var(--white);
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    top: 0;
+    background-color: rgb(24, 243, 141);
+    z-index: -1;
+}
+
+#catalog .gameslidt .selectgame a:nth-child(1)::before {
+    content: "SHOOTER";
+}
+
+#catalog .gameslidt .selectgame a:nth-child(2)::before {
+    content: "ACTION";
+}
+
+
+#catalog .gameslidt .selectgame a:nth-child(3)::before {
+    content: "SPORT";
+}
+
+
+#catalog .gameslidt .selectgame a:hover::before {
+    z-index: 1;
+}
+
+#catalog .gameslidt .gamename {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    text-align: center;
+}
+
+#catalog .gameslidt .gamename a {
+    font-size: 25px;
+    background-color: var(--main);
+    color: var(--white);
+}
+
+#catalog .gameslidt .gamename a:nth-child(1){
+    border-right: 1.5px solid #fff;
+}
+
+#catalog .gameslidt .gamename a:nth-child(3){
+    border-left: 1.5px solid #fff;
+}
+
+
+
+@keyframes game {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    25% {
+        transform: translateY(-350px);
+    }
+
+    50% {
+        transform: translateY(-700px);
+    }
+
+    75% {
+        transform: translateY(-1050px);
+    }
+
+    100% {
+        transform: translateY(-1400px);
+    }
+}
+
+/* Contents */
+
+#Contents{
+    margin-top: 80px;
+}
+
+#Contents .contents .row .card{
+    box-shadow: var(--card-shadow);
+    margin-top: 25px;
+    height: auto;
+    overflow: hidden;
+}
+
+#Contents .contents .row .card .card-body{
+    height: 160px;
+    overflow: hidden;
+}
+
+#Contents .contents .row .card img{
+    width: 100%;
+    height: 380px;
+}
+
+#Contents .contents .row .card p{
+    font-size: 16px;
+}
+
+#Contents .contents .row .card a{
+    text-decoration: none;
+}
+
+#Contents .contents .row .card .card-header h2{
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Education-page */
+
+#edu{
+    margin-top: 150px;
+}
+
+#edu .web-prog .selectdev{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#edu .web-prog .selectdev img{
+    width: 100%;
+    height: 350px;
+}
+
+
+#catalog .gameslidt .selectgame a:hover::before {
+    z-index: 1;
+}
+/* Footer */
+
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--text);
+    color: var(--white);
+    margin-top: 150px;
+    padding: 16px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+/* responsive */
+
+@media (max-width: 800px) {
+    #catalog .popgames {
+        width: 100%;
+    }
+
+    #catalog .gameslidt .selectgame {
+        height: 350px;
+    }
+
+    #catalog .gameslidt .gamename a {
+        font-size: 16px;
+    }
+  
+}
+
+@media (max-width: 620px) {
+    #nav .home {
+        display: none;
+    }
+
+    #main h1 {
+        font-size: 40px;
+    }
+
+    #main p {
+        font-size: 18px;
+    }
+
+    #catalog .popgames {
+        height: 250px;
+    }
+
+    @keyframes game {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        25% {
+            transform: translateY(-250px);
+        }
+
+        50% {
+            transform: translateY(-500px);
+        }
+
+        75% {
+            transform: translateY(-750px);
+        }
+
+        100% {
+            transform: translateY(-1000px);
+        }
+    }
+
+    #catalog .gameslidt .selectgame {
+        height: 250px;
+    }
+
+    #catalog .gameslidt .gamename a {
+        font-size: 13px;
+    }
+
+    #edu .web-prog .selectdev img{
+        height: 180px;
+    }
+
+    #add{
+        width: 100vmin;
+    }
+
+}

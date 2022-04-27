@@ -1,0 +1,22 @@
+{
+    "background_color": "#00ff2a",
+    "description": "GAMEPRO.UZ - Free Compressed games for pc",
+    "dir": "ltr",
+    "display": "standalone",
+    "name": "GAMEPRO_UZ",
+    "orientation": "portrait",
+    "scope": "/https://gameprouz.netlify.app/",
+    "short_name": "GAMEPRO",
+    "start_url": "/https://gameprouz.netlify.app/",
+    "theme_color": "#58f962",
+    "categories": [],
+    "screenshots": [],
+    "icons": [
+      {
+        "src": "img/logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+    ],
+    "shortcuts": []
+  }

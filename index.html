@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMEPRO_UZ</title>
+    <meta name="theme-color" content="rgb(24, 243, 141)">
+    <link rel="apple-touch-icon" href="img/logo.png" type="image/x-icon">
+    <meta name="description"
+        content="GAMEPRO.UZ - Free Compressed games for pc" <meta
+        name="keywords"
+        content="GAMEPROUZ,free,free games,pc games,compressed games,programming,devloper,html,css,javascript,videoes,learn web,learn html,dasturlar,o'yinlar,it darslari,programmalar,onlayn ta'lim,bepul,templates">
+    <!-- Css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Animatie.css -->
+    <link rel="stylesheet" href="css/animate.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <!-- Wep App -->
+    <link rel="manifest" href="manifest.json">
+    <!-- app -->
+    <script>
+        
+        // This is the "Offline page" service worker
+
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
+
+const CACHE = "pwabuilder-page";
+
+// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
+const offlineFallbackPage = "index.html";
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+});
+
+self.addEventListener('install', async (event) => {
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => cache.add(offlineFallbackPage))
+  );
+});
+
+if (workbox.navigationPreload.isSupported()) {
+  workbox.navigationPreload.enable();
+}
+
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const preloadResp = await event.preloadResponse;
+
+        if (preloadResp) {
+          return preloadResp;
+        }
+
+        const networkResp = await fetch(event.request);
+        return networkResp;
+      } catch (error) {
+
+        const cache = await caches.open(CACHE);
+        const cachedResp = await cache.match(offlineFallbackPage);
+        return cachedResp;
+      }
+    })());
+  }
+});
+
+    </script>
+
+<script
+type="module"
+src="https://cdn.jsdelivr.net/npm/@pwabuilder/pwainstall"
+></script>
+
+<script async defer>
+    var installComponent = document.createElement("pwa-install");
+    document.body.appendChild(installComponent);
+    installComponent.getInstalledStatus();
+  </script>
+
+<pwa-install id="installComponent"></pwa-install>
+<script async defer>
+  const ref = document.getElementById("installComponent");
+  ref.getInstalledStatus();
+
+  
+</script>
+
+</head>
+
+<body>
+
+    <!-- Add -->
+    <div id="add">
+        <span class="closeAdd">&times;</span>
+        <img src="img/logo.png" alt="logo">
+        <p>IT SOHASIGA OID VIDEODARSLIKLAR,PROGRAMMALAR VA MAQOLALAR KANALI!</p>
+        <a href="https://t.me/ITPRO_CODE"><button class="btn btn-primary m-auto d-block">VIEW CHANEL</button></a>
+    </div>
+
+    <!-- Navigation -->
+
+    <nav id="nav">
+
+        <div class="menu">
+            <div></div>
+        </div>
+
+        <div class="logo">
+            <h1>GAMEPRO_<span>UZ</span></h1>
+        </div>
+
+        <div class="home">
+            <a href="https://t.me/ITPRO_CODE"><button class="btn btn-success">SIGN UP</button></a>
+        </div>
+
+    </nav>
+
+    <div class="navigation-items">
+        <a href="https://t.me/ITPRO_CODE"><button class="btn btn-success">SIGN UP</button></a>
+        <a class="linkitm" href="index.html">MAIN MENU</a>
+        <a class="linkitm" href="Categories/game.html">GAMES UNDER 100MB</a>
+        <a class="linkitm" href="Categories/game categorie/action/index.html">ACTION GAMES</a>
+        <a class="linkitm" href="Categories/game categorie/shooter/index.html">SHOOTER GAMES</a>
+        <a class="linkitm" href="Categories/game categorie/sport/index.html">SPORT GAMES</a>
+    </div>
+
+    <!-- Navigation-end -->
+
+
+    <!-- Main-page-section -->
+
+    <section id="main">
+        <h1>GAMEPRO_<span>UZ</span></h1>
+        <p>GAMERO.UZ - Free Compressed Games for pc </p>
+    </section>
+
+    <!-- Main-page-section-end -->
+
+
+    <!-- Catalogs -->
+
+    <div class="container-sm bg-light">
+
+        <section id="catalog">
+
+            <a class="upload" href="#">Home</a>
+
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo">
+            </div>
+
+            <h1 class="main-info text-center">PC GAMES</h1>
+
+            <div class="title">
+
+                <div class="text ctlBtn">
+                    <img src="img/menu.ico" alt="categories">
+                    <h2>CATEGORIES</h2>
+                </div>
+
+                <div class="tg">
+                    <a href="https://t.me/ITPRO_CODE"><img src="img/share.ico" alt="shareImg"></a>
+                </div>
+
+            </div>
+
+            <div class="ctl categories">
+                <ul>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game.html">Games Under 100mb!</a></li>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game categorie/action/index.html">Action</a></li>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game categorie/shooter/index.html">Shooter</a></li>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game categorie/sport/index.html">Sport</a></li>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game categorie/gta games/index.html">Gta Games</a></li>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game categorie/counter strike/index.html">Counter Strike</a></li>
+                    <li><img src="img/game.ico" alt="game"><a href="Categories/game categorie/call of duty/index.html">Call Of Duty</a></li>
+                </ul>
+            </div>
+
+            
+            <div class="popgames wow animate__animated animate__bounceIn">
+
+                <div class="gamecnt">
+                    <a href="https://www.apunkasoftware.net/vlink/12144728110"><img src="img/popgames/Cyberpunk_2077.jpg" alt="Cyberpunk_2077"></a>
+                    <a href="https://www.apunkasoftware.net/vlink/112300518"><img src="img/popgames/GTA 5.jpg" alt="Cyberpunk_2077"></a>
+                    <a href="https://www.apunkasoftware.net/vlink/10262227849"><img src="img/popgames/Red_Dead_Redemption_2.jpg" alt="Red_Dead_Redemption_2"></a>
+                    <a href="https://thefileslocker.com/9n1mfdypr8dc.html"><img src="img/popgames/cs_go.jpg" alt="Battelfield"></a>
+                    <a href="https://thefileslocker.com/efg94xnizr7t.html"><img src="img/popgames/Assassins Cred.jpg" alt="Assassins"></a>
+                </div>
+
+            </div>
+
+
+            <div class="gameslidt wow animate__animated animate__zoomInDown">
+
+                <div class="info wow animate__animated animate__fadeIn">
+                    <h2>CATEGORIES OF PC GAMES</h2>
+                </div>
+
+                <div class="selectgame">
+                    <a href="Categories/game categorie/shooter/index.html"><img src="img/game categories/ct1.jpg" alt="shooter"></a>
+                    <a href="Categories/game categorie/action/index.html"><img src="img/game categories/ct2.jpg" alt="action"></a>
+                    <a href="Categories/game categorie/sport/index.html"><img src="img/game categories/ct3.jpg" alt="sport"></a>
+                </div>
+
+                <div class="gamename">
+                    <a href="Categories/game categorie/shooter/index.html">SHOOTER</a>
+                    <a href="Categories/game categorie/action/index.html">ACTION</a>
+                    <a href="Categories/game categorie/sport/index.html">SPORT</a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Contentas -->
+
+        <section id="Contents">
+
+            <div class="info">
+                <h2>THE LAST PC GAMES</h2>
+            </div>
+
+            <div class="contents">
+
+                <div class="row">
+
+                    <div class="col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/shooter/1.Page/2.Battlefield 4/index.html"><img src="Categories/game categorie/shooter/1.Page/2.Battlefield 4/Battlefield-4-cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Battlefield 4</h2>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Battlefield 4 Game – Overview – Free Download – Compressed – Screenshots – PC –
+                                    RIP – Specs –
+                                    Torrent/uTorrent</b>
+                                Type of game: First-person shooter
+                                PC Release Date: October 29, 2013
+                                Developer: EA DICE, Electronic Arts
+                                Battlefield 4 (Size: 18.2 GB) is a First-person shooter video game. Developed by EA
+                                DICE and published by
+                                Electronic Arts. It was released on Microsoft Windows in October 29, 2013.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/shooter/1.Page/2.Battlefield 4/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/action/1.Page/5.Transformers The Game/index.html"> <img src="Categories/game categorie/action/1.Page/5.Transformers The Game/Transformers-The-Game-Cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Transformers: The Game</h2>
+                            </div>
+                            <div class="card-body">
+                                <p> <b>Transformers: The Game – Overview – Free Download – Compressed – Screenshots – PC</b> – Specs – RIP –
+                                    Torrent/uTorrent
+                                    Type of game: Third-person shooter
+                                    PC Release Date: July 20, 2007
+                                    Developer: Traveller’s Tales
+                                    Transformers: The Game (Size: 206 MB) is a Third-person shooter video game. The game developed by
+                                    Traveller’s Tales and was released on July 20, 2007 for Microsoft Windows.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/action/1.Page/5.Transformers The Game/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/shooter/1.Page/7.Far Cry 3/index.html"><img src="Categories/game categorie/shooter/1.Page/7.Far Cry 3/Far Cry 3 cover.jpg"
+                                    ></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Far Cry 3</h2>
+                            </div>
+                            <div class="card-body">
+                                <p> <b>Far Cry 3 is a role playing game, its have a lots of adventures</b> that occur in game. Far Cry 3 is a first
+                                    person shooter video game in which we have open world action, its look like a film. This game first time
+                                    release in november 29, 2012. Developers of the game Ubisoft Montreal and publisher Ubisoft. Direction will
+                                    be done by Patrick Plourde and Patrik methe and production completed by Dan Hay. Its also a part of Far Cry
+                                    series. Micro soft windows, Xbox 360 and play station 3 are the play forms of Far Cry 3. Graphically it was
+                                    the great success such as tropical island between indian and pacific oceans included. story relate from a
+                                    hero nam is Jason brody who fight for their friends, he must try to save their kidnapped friends and escape
+                                    from the island. Its a open end game play but world appreciate when this game was release after taking some
+                                    critisium.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/shooter/1.Page/7.Far Cry 3/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/action/1.Page/7.The Hulk/index.html"> <img src="Categories/game categorie/action/1.Page/7.The Hulk/The-Incredible-Hulk-Cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>The Hulk</h2>
+                            </div>
+                            <div class="card-body">
+                                <p> <b>The Incredible Hulk – Overview – Free Download – RIP – Compressed – Specs – Torrent/uTorrent</b>
+                                    Type of game: Action
+                                    PC Release Date: June 5, 2008
+                                    Developer: Edge of Reality, Amaze Entertainment
+                                    The Incredible Hulk (Size: 272 MB) is a Action video game. It was released on June 5, 2008 for Microsoft
+                                    Windows. The game developed by Edge of Reality, Amaze Entertainment and published by Sega, Sega Europe
+                                    Limited.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/action/1.Page/7.The Hulk/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/games under 100mb/1.Page/1.Angry birds/index.html"><img src="Categories/game categorie/games under 100mb/1.Page/1.Angry birds/Angry-Birds-Space-Cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Angry Birds Space</h2>
+                            </div>
+                            <div class="card-body">
+                                <p> <b>Angry Birds Space – free download – pc game – full version</b>- PC games download
+                                    Type of game: Puzzle
+                                    PC Release Date: March 22, 2012
+                                    Developer/Publishers: Rovio Entertainment
+                                    Angry Birds Space is a puzzle video game. The game release for android, windows, PC
+                                    phone, blackberry, mac in 2012 by Rovio Entertainment...</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/games under 100mb/1.Page/1.Angry birds/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/games under 100mb/1.Page/9.Plantes vs Zombies/index.html"> <img src="Categories/game categorie/games under 100mb/1.Page/9.Plantes vs Zombies/Plants-vs.-Zombies-Cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Plantes Vs Zombies</h2>
+                            </div>
+                            <div class="card-body">
+                                <p><b> Plants vs. Zombies Game – Overview – Free Download- PC
+                                    Compressed – Torrent/uTorrent – RIP – Specs – Screenshots</b>
+                                    Type of game: Tower defense
+                                    PC Release Date: May 5, 2009
+                                    Developer: PopCap Games
+                                    Plants vs. Zombies is a old Tower defense game developed by PopCap Games company. The game released in May
+                                    5, 2009 for PC & other systems.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/games under 100mb/1.Page/9.Plantes vs Zombies/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/sport/1.Page/6.Tekken 5/index.html"><img src="Categories/game categorie/sport/1.Page/6.Tekken 5/Tekken-5-cover-1.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Tekken 5</h2>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Tekken 5 game , PC game, download, full version
+                                    Type of game: Fighting game</b>
+                                    PC Release Date: 2004
+                                    Developer/Publishers: Namco / Namco
+                                    Tekken 5 is a fighting game. just download and install this game, select your favorite player & fight
+                                    against your opponent.
+                        
+                                    Before downloading make sure that your PC meets minimum system requirements.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/sport/1.Page/6.Tekken 5/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/sport/1.Page/8.Tekken 6/index.html"> <img src="Categories/game categorie/sport/1.Page/8.Tekken 6/Tekken 6 cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Tekken 6</h2>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Tekken 6 Minimum System Requirements OS:</b> Windows XP SP 3/Vista/7/8 Processor: Pentium 4 @ 2.6GHz or AMD
+                                    Athlon 2600+ RAM: 1 GB Hard Drive: 8 GB Graphics Card: 256 MB with Pixel Shader 3.0+ (Required) Sound Card:
+                                    Windows Direct X</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/sport/1.Page/8.Tekken 6/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/sport/1.Page/1.Need For Speed MW 2012/index.html"><img src="Categories/game categorie/sport/1.Page/1.Need For Speed MW 2012/need-for-speed-most-wanted-2012-cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Need For Speed MW 2012</h2>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Need for Speed Most Wanted 2012 game – download – free game – pc – compressed – RIP – torrent- buy</b>
+                                    Type of game: Racing
+                                    PC Release Date: October 30, 2012
+                                    Developer/Publishers: EA Block Box, EA Games
+                                    Need for Speed Most Wanted 2012 is one the most popular game in nfs series. The game have single-player and
+                                    multiplayer mode. It is open world video game published and developer by EA GamesBefore downloading make
+                                    sure that your PC meets minimum system requirements.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/sport/1.Page/1.Need For Speed MW 2012/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" col col-sm-6 col-12">
+                        <div class="card wow animate__animated animate__fadeInUp">
+                            <div class="card-img-top">
+                                <a href="Categories/game categorie/sport/1.Page/9.Need for Speed Carbon/index.html"> <img src="Categories/game categorie/sport/1.Page/9.Need for Speed Carbon/need-for-speed-carbon-cover.jpg"></a>
+                            </div>
+                            <div class="card-header">
+                                <h2>Need For Speed Carbon</h2>
+                            </div>
+                            <div class="card-body">
+                                <p><b>Need for Speed: Carbon Game – Overview – Free Download – Compressed – Screenshots – PC – RIP – Specs –
+                                    Torrent/uTorrent</b>
+                                    Type of game: Racing
+                                    PC Release Date: October 30, 2006
+                                    Developer: EA Black Box
+                                    Need for Speed: Carbon (Size: 1.39 GB) is being widely acknowledge as the best series in racing that ever
+                                    made. It doesn’t disappoint everyone because of having its realism and stunning style. The NFSC game is the
+                                    furious and fastest game, featuring both canyon racing and city environment. But, be aware that its download
+                                    is big and you need a great five minutes to allow the installation process.
+                        
+                                    Before downloading make sure that your PC meets minimum system requirements.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="Categories/game categorie/sport/1.Page/9.Need for Speed Carbon/index.html"><button class="btn btn-success m-auto d-block">DOWNLOAD</button></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <footer class="wow animate__animated animate__zoomInUp">
+            <div class="copyright">
+                <p>&copy; All Rights Resaved ITPRO_UZ 2022 | Created & Designed By <a href="https://t.me/AVANGARD2007">AVANCODER</a></p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Contact function -->
+
+    <script>
+        window.replainSettings = {
+            id: '7563ea84-04e6-4496-91bf-9320fdffdcb7'
+        };
+        (function (u) {
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = u;
+            var x = document.getElementsByTagName('script')[0];
+            x.parentNode.insertBefore(s, x);
+        })('https://widget.replain.cc/dist/client.js');
+    </script>
+
+    <!-- Wow.js -->
+
+    <script src="Wow.js/wow.min.js"></script>
+    <script>new WOW().init();</script>
+
+    <!-- Javascript and Jquery -->
+
+    <script src="javascript/jquery-3.6.0.min.js"></script>
+    <script src="javascript/js.js"></script>
+
+</body>
+
+</html>

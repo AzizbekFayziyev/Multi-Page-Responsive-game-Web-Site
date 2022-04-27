@@ -1,0 +1,115 @@
+
+
+.nav{
+    background-color: rgb(38, 37, 44);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.nav a{
+    font-size: 2vmin;
+    padding: 1vmin;
+    text-decoration: none;
+    background-color: rgb(24, 243, 141);
+    color: #fff;
+    margin: 1vmin 0.5vmin;
+    border-radius: 0.8vmin;
+}
+
+.nav a:hover{
+    color: rgb(255, 0, 0);
+}
+
+.gameactiv{
+    color: rgb(255, 0, 0) !important;
+}
+
+.nextctgbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.nextctgbtn a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.nextctgbtn a:hover{
+    color: rgb(24, 243, 141);
+}
+
+#Gamedl img{
+    max-width: 350px;
+    max-height: 500px;
+}
+
+#Gamedl .Main-pic {
+    display: block;
+    margin: 30px auto;
+}
+
+#Gamedl .info-text{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#Gamedl h2{
+    border-bottom: 1px solid rgb(24, 243, 141);
+    padding: 5px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+#Gamedl ul{
+    text-align: left;
+    margin: 0 10px;
+}
+
+#Gamedl ul li{
+    list-style-type: decimal;
+    line-height: 40px;
+}
+
+#Gamedl .skreen img{
+    display: block;
+    margin: 30px auto;
+    min-width: 50%;
+    min-height: 250px;
+}
+
+#Gamedl .dwbtn {
+    text-decoration: none;
+}
+
+#Gamedl .dwbtn button{
+    display: block;
+    margin: 20px auto;
+    outline: none;
+    border: none;
+    background: rgb(24, 243, 141);
+    color: #fff;
+    padding: 10px;
+    border-radius: 20px;
+    animation: pulse 1s ease infinite;
+}
+
+#Gamedl .dwbtn button:hover{
+    background-color: rgb(38, 140, 250);
+    animation: none;
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+}
